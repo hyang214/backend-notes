@@ -16,3 +16,26 @@
 + 原因：mybatis中 
 	+ **#{}**中是将传入的值当做字符串的形式，解析为一个 JDBC 预编译语句（prepared statement）的参数标记符，一个 #{ } 被解析为一个参数占位符 
 	+ **${}**中是将传入的值当做SQL的形式，仅仅为一个纯碎的 string 替换，在动态 SQL 解析阶段将会进行变量替换
+
+
+## Mybatis-Plus Lambda表达式 in 导致错误更新
++ 时间：2019.04.09
++ 场景：使用mybatis-plus的lambda进行过滤，且使用了**in**，但是对应的集合为空
+```
+	QueryWrapper<TsPaperTask> query = new QueryWrapper<>();
+    query.lambda().in(SomePO::getId, ids);
+```
++ 原因：当**in**比较的集合为空的时候，sql并不会报错，而是当做没有该条件，导致where条件失效，最终导致更新记录出错
+
+
+
+
+
+
+
+
+
+
+
+
+

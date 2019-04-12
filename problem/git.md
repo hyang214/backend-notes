@@ -5,8 +5,16 @@
 + 时间：2019.04.10
 + 场景：写了一天的代码，涉及6次commit，新增二十个文件，改动几十个文件。晚上走之前push的时候，报错，发现无法push，当时的心情真是 哔了POI 的感觉。错误如下：
     ```
-    error: garbage at end of loose object 'c91ce852821d32e38jed7ddd04c93066e3c561ea'
-    fatal: object c91ce852821d32e38jed7ddd04c93066e3c561ea is corrupted
+    Counting objects: 12, done.
+    Delta compression using up to 8 threads.
+    Compressing objects: 100% (6/6), done.
+    Writing objects: 100% (12/12), 1.03 KiB | 1.03 MiB/s, done.
+    Total 12 (delta 2), reused 0 (delta 0)
+    remote: error: garbage at end of loose object '7b8415c9e3a00366d8f50534475fabc6e6d9793b'
+    remote: fatal: loose object 7b8415c9e3a00366d8f50534475fabc6e6d9793b (stored in /ceph_fs/git_repositories/group_name/repository_name.git/objects/7b/8415c9e3a00366d8f50534475fabc6e6d9793b) is corrupt
+    To https://git_hostname/group_name/repository_name.git
+     ! [remote rejected] report -> report (missing necessary objects)
+    error: failed to push some refs to 'https://git_hostname/group_name/repository_name.git'
     ```
 + 解决：
 1. 首先按照关键字 去 Google 和 百度 找解决方案，得到了一些命令，一顿猛操作，但是未解决。发现问题并不简单，开始细心看问题

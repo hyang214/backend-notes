@@ -46,7 +46,8 @@
 	+ 由于idea的自动跳转功能中，对应的sql一致能正确匹配，所以没有怀疑是路径有问题
 
 + 解决：修改Mapper的名称，以\*Mapper.xml的格式为名称
-
++ Reference:
+	1. [Invalid bound statement (not found)错误的可能原因](https://www.cnblogs.com/liaojie970/p/8034525.html)
 
 
 

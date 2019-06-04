@@ -1,6 +1,6 @@
 ## 不能使用CREATE TABLE AS SELECT
 
-+ 时间：2018.04.25
++ 时间：2019.04.25
 + 场景：进行数据迁移的时候，使用```CREATE TABLE AS SELECT```语法，提示错误```Error : Statement violates GTID consistency: CREATE TABLE ... SELECT.```
 + 原因：由于```CREATE TABLE AS SELECT```语句会生成两个sql，一个是DDL创建表SQL，一个是insert into 插入数据的sql。由于DDL会导致自动提交，所以这个sql至少需要两个GTID，但是GTID模式下，只能给这个sql生成一个GTID，如果强制执行会导致和上面更新非事务引擎一样的结果。
 + 解决：将```CREATE TABLE AS SELECT```拆分成2个sql

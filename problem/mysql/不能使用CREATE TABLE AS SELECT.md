@@ -18,7 +18,12 @@
             opt_rds_last_error_gtid	ON
             session_track_gtids	OFF
 		```
++ 注意：
+
+  + mysql任何事物在执行到一个DDL的情况下，会自动产生一次commit，这会导致一个源事务被分割成2个，进一步导致无法全部回滚
+
 
 ## Reference
 1. [mysql的GTID模式对create table as select的限制](https://blog.csdn.net/qq_40809549/article/details/79975081)
 2. [mysql GTID 主从复制模式](https://www.cnblogs.com/luckcs/articles/6295992.html)
+3. [MySQL--当事务遇到DDL命令](https://www.cnblogs.com/TeyGao/p/7622155.html)

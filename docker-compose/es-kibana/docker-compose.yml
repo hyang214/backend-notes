@@ -1,0 +1,25 @@
+version: "3"
+
+services:
+  elasticsearch:
+    image: docker.io/elasticsearch:6.7.1
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - ./elasticsearch/data:/usr/share/elasticsearch/data
+    container_name: elasticsearch
+    hostname: elasticsearch
+    restart: always
+    ports:
+      - "9200:9200"
+  kibana:
+    image: docker.io/kibana:6.7.1
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    container_name: kibana
+    hostname: kibana
+    depends_on:
+      - elasticsearch
+    restart: always
+    ports:
+      - "5601:5601"

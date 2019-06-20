@@ -26,6 +26,10 @@
 	+ 由于是后端服务，对应的格式定义已经上线了，因此不能去掉格式定义的配置，以防其他系统出错；
 	+ 由于调用方，也对外提供服务，因此，调用方加上全局的格式配置也有风险；
 	+ 调用方自行定义一个返回类，复刻原返回类，但是对其中的Date对象，加入序列化格式定义
+	```
+	 @JsonFormat(locale="zh", timezone="GMT+8", pattern="yyyy-MM-dd HH:mm:ss")
+    private Date createdAt;
+	```
 
 + Reference
 1. [Spring Mvc使用Jackson进行json转对象时，遇到的字符串转日期的异常处理（Can not deserialize value of type Date from String）](https://blog.csdn.net/qq906627950/article/details/79503801)

@@ -5,3 +5,4 @@
 查看本地打包，确实有logbck。
 通过maven dependency:tree -Dverbose打印详细日志，发现logback在另外一个同学引入的spring-boo-starter-aop中引入。
 排除后，问题修复。
+
